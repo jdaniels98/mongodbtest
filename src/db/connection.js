@@ -16,3 +16,5 @@ const connection = async () => {
         console.log(error)
     }
 }
+
+module.exports = { client, connection }
