@@ -5,14 +5,24 @@ class Movie {
     }
     // write our CRUD operations
 
-    //CREATE
+    //create
     async create (collection) {
         await collection.insertOne(this)
     }
 
-    //READ
+    //read
     async read (collection) {
         return await collection.find({}).toArray()
+    }
+
+    //updateOne
+    async update (collection, key, filter) {
+        await collection.updateOne({ [key]: filter }, { $set: this })
+    }
+
+    //deleteOne
+    async delete (collection) {
+        await collection.deleteOne(this)
     }
 }
 
